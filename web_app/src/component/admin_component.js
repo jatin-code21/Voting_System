@@ -24,7 +24,7 @@ function AdminComponent({account, contractInstance}) {
     const [candidateAge, setCandidateAge] = useState();
     const [candidateAddress, setCandidatAddress] = useState();
     const [voterAddress, setVoterAddress] = useState();
-    const [winnerAddress, setWinnerAddress] = useState("shubham");
+    const [winnerAddress, setWinnerAddress] = useState("Not-declared");
 
     async function register_candidate(){
         console.log("name:", candidateName);
@@ -122,7 +122,7 @@ function AdminComponent({account, contractInstance}) {
                             <TextField id="outlined-basic" label={winnerAddress} variant="outlined" disabled style={{width: '100%'}}/>
                         </CardContent>
                         <CardActions>
-                            <Button variant="contained" onClick={get_Winner}>Get Wineer</Button>
+                            <Button variant="contained" onClick={get_Winner}>Get Winner</Button>
                         </CardActions>
                     </Card>
                 </div>

@@ -12,19 +12,19 @@ async function connectWeb3() {
     const deployedNetwork = await VotingContract.networks[networkId];
     const instance = new web3.eth.Contract(
         VotingContract.abi,
-        deployedNetwork.address
+        deployedNetwork.address // contract address
     );
     return {accounts, instance}
 }
 
 //function for using Metamask
 async function connectWeb3Metamask() {
-    const web3 = new Web3(Web3.givenProvider || "http://127.0.0.1:8545");
+    const web3 = new Web3(Web3.givenProvider || "http://127.0.0.1:8545"); // .givenProvider is the method provided which automatically connects to the wallet installled
     await window.ethereum.enable();
     const accounts = await web3.eth.getAccounts();
     const networkId = await web3.eth.net.getId();
     console.log("Injected web3 detected.", accounts, networkId);
-    const deployedNetwork = await VotingContract.networks[networkId];
+    const deployedNetwork = await VotingContract.networks[networkId]; // 5777 is the network id this case
     const instance = new web3.eth.Contract(
         VotingContract.abi,
         deployedNetwork.address
